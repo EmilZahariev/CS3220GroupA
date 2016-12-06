@@ -1,0 +1,29 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww14500\viewh5520\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Midi note generation in PD:\
+\
+Notes:\
+\
+FM8Midi.pd contains the files needed to run the test. Clicking the central bang will result in a chord progression of C D E and F\
+\
+In order to run the program, you will need to download the demo version of FM8 by Native Instruments\
+https://www.native-instruments.com/en/products/komplete/synths/fm8/downloads/\
+\
+There are three parts to setting this up:\
+This was tested on a MacOS system so I\'92m not sure if it works for everyone\
+\
+1) In Applications/Utilities is an application called Audio MIDI Setup. Open it \
+2) From the windows tab, select Show MIDI Studio\
+3) You will now see a collections of coloured boxes. The one we\'92re interested in is IAC Driver. Click on that box and make sure that the box \'93Device is online\'94 is activated. This should fade the IAC Driver box from faded to solid\
+4) Once downloaded the demo version of FM8, go to File/Audio and MIDI Setting \
+5) Click on the MIDI tab and view the Inputs. You need to change the driver Bus 1 from off to on.\
+6) Now we can open PD. Create a new file first otherwise we cannot edit the inputs and outputs. Opening the assignment file should also work, we just need to create the instance of a Pd file that will send audio commands from. \
+7) Now select Pd/Preferences/MIDI Settings\
+8) From the output devices option, select Bus 1. \
+9) The Pd file should now work as intended. The sounds generated can also be altered from FM8\'92s sound library. The sound used for this test is Browser/Guitar/Distora O Mania\
+}
