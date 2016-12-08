@@ -1,0 +1,455 @@
+#N canvas 882 65 958 988 10;
+#N canvas 0 50 958 988 VolumeChangerForTwoSounds 0;
+#X obj 94 207 dac~;
+#X obj 93 136 readsf~;
+#X obj 155 153 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 59 119 0;
+#X obj 33 104 bng 15 250 50 0 empty StopPiano empty 17 7 0 10 -262144
+-1 -1;
+#X obj 458 301 dac~;
+#X obj 456 212 readsf~;
+#X obj 558 229 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 413 196 0;
+#X obj 387 181 bng 15 250 50 0 empty StopGuitar empty 17 7 0 10 -262144
+-1 -1;
+#X msg 93 104 open PianoMelody.wav \, 1;
+#X msg 456 174 open AcousticGuitarEdit.wav \, 2;
+#X obj 94 181 *~;
+#X obj 291 50 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X obj 457 259 *~;
+#X floatatom 350 181 5 0 0 0 - - -, f 5;
+#X floatatom 335 245 5 0 0 0 - - -, f 5;
+#X obj 335 223 -;
+#X msg 291 206 1;
+#X obj 93 16 bng 15 250 50 0 empty StartPiano empty 17 7 0 10 -262144
+-1 -1;
+#X obj 456 16 bng 15 250 50 0 empty StartGuitar empty 17 7 0 10 -262144
+-1 -1;
+#X msg 213 31 1;
+#X msg 378 31 0;
+#X connect 1 0 12 0;
+#X connect 1 1 2 0;
+#X connect 2 0 10 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X connect 6 0 14 0;
+#X connect 6 1 7 0;
+#X connect 7 0 11 0;
+#X connect 8 0 6 0;
+#X connect 9 0 8 0;
+#X connect 10 0 1 0;
+#X connect 11 0 6 0;
+#X connect 12 0 0 0;
+#X connect 12 0 0 1;
+#X connect 13 0 12 1;
+#X connect 13 0 15 0;
+#X connect 13 0 18 0;
+#X connect 14 0 5 0;
+#X connect 14 0 5 1;
+#X connect 15 0 17 1;
+#X connect 16 0 14 1;
+#X connect 17 0 16 0;
+#X connect 18 0 17 0;
+#X connect 19 0 10 0;
+#X connect 19 0 21 0;
+#X connect 20 0 11 0;
+#X connect 20 0 22 0;
+#X connect 21 0 13 0;
+#X connect 22 0 13 0;
+#X restore 385 246 pd VolumeChangerForTwoSounds;
+#N canvas -3 342 1920 997 SpeedAndVolumeChangerForTwoSounds 1;
+#N canvas 0 50 450 278 (subpatch) 0;
+#X array channelR 398663 float 0;
+#X coords 0 1 398662 -1 200 140 1 0 0;
+#X restore 52 276 graph;
+#N canvas 0 50 450 278 (subpatch) 0;
+#X array channelL 398663 float 0;
+#X coords 0 1 398662 -1 200 140 1;
+#X restore 52 120 graph;
+#X obj 476 95 soundfiler;
+#X floatatom 506 121 12 0 0 0 - - -, f 12;
+#X obj 476 164 expr 44100 / $f1;
+#X obj 506 141 s sampleSize;
+#X floatatom 503 192 12 0 0 0 - - -, f 12;
+#X obj 476 222 phasor~;
+#X obj 477 265 *~;
+#X obj 503 248 r sampleSize;
+#X obj 521 387 tabread4~ channelL;
+#X obj 478 354 tabread4~ channelR;
+#X obj 522 512 *~;
+#X obj 479 512 *~;
+#X obj 479 571 dac~ 1 2;
+#X obj 284 283 snapshot~;
+#X obj 284 259 metro 50;
+#X obj 284 237 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 284 315 12 0 0 0 - - -, f 12;
+#X obj 284 378 /;
+#X obj 368 324 r sampleSize;
+#X floatatom 284 409 5 0 0 0 - - -, f 5;
+#X obj 55 423 hsl 195 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 623 175 hsl 128 15 0.0479335 0.191734 0 1 empty empty empty
+-8 0 0 4 -262144 -1 -1 5536 0;
+#X floatatom 620 208 10 0 0 0 - - -, f 10;
+#N canvas 0 50 450 278 (subpatch) 0;
+#X array channelR2 460013 float 0;
+#X coords 0 1 460012 -1 200 140 1 0 0;
+#X restore 1483 481 graph;
+#N canvas 0 50 450 278 (subpatch) 0;
+#X array channelL2 460013 float 0;
+#X coords 0 1 460012 -1 200 140 1 0 0;
+#X restore 1479 318 graph;
+#X obj 1156 338 soundfiler;
+#X floatatom 1185 364 12 0 0 0 - - -, f 12;
+#X obj 1156 407 expr 44100 / $f1;
+#X floatatom 1182 435 12 0 0 0 - - -, f 12;
+#X obj 1156 465 phasor~;
+#X obj 1157 508 *~;
+#X obj 1201 627 *~;
+#X obj 1158 627 *~;
+#X obj 1160 854 dac~ 1 2;
+#X obj 1342 524 snapshot~;
+#X obj 1342 496 metro 50;
+#X obj 1342 469 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X floatatom 1342 548 12 0 0 0 - - -, f 12;
+#X obj 1342 583 /;
+#X floatatom 1364 615 5 0 0 0 - - -, f 5;
+#X obj 1486 629 hsl 195 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 1295 418 hsl 128 15 0.05531 0.22124 0 1 empty empty empty -8
+0 0 4 -262144 -1 -1 3104 0;
+#X floatatom 1292 451 10 0 0 0 - - -, f 10;
+#X text 1292 371 playback Speed;
+#X obj 1158 552 tabread4~ channelR2;
+#X obj 1202 591 tabread4~ channelL2;
+#X obj 922 381 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X floatatom 872 542 5 0 0 0 - - -, f 5;
+#X floatatom 922 613 5 0 0 0 - - -, f 5;
+#X obj 922 556 -;
+#X msg 922 529 1;
+#X obj 1185 384 s sampleSize2;
+#X obj 1182 491 r sampleSize2;
+#X obj 1376 566 r sampleSize2;
+#X msg 476 61 read -resize \$1 channelL channelR;
+#X msg 1156 313 read -resize \$1 channelL2 channelR2;
+#X obj 476 35 openpanel;
+#X obj 1156 284 openpanel;
+#X obj 476 11 bng 15 250 50 0 empty initP empty 17 7 0 10 -262144 -1
+-1;
+#X obj 1156 260 bng 15 250 50 0 empty initG empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1034 244 bng 15 250 50 0 bangTime PtoG empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1034 362 line;
+#X obj 918 113 vsl 15 128 500 2000 0 0 empty bangTime empty 0 -9 0
+10 -262144 -1 -1 6400 1;
+#X floatatom 946 244 5 0 0 0 - - -, f 5;
+#X msg 889 244 1;
+#X obj 889 273 pack \$1 \$2;
+#X msg 1034 290 \$1 \$2;
+#X msg 1077 302 1 10;
+#X obj 1077 259 del 2000;
+#X obj 837 156 vsl 15 128 500 2000 0 0 empty bangTime2 empty 0 -9 0
+10 -262144 -1 -1 0 1;
+#X floatatom 837 301 5 0 0 0 - - -, f 5;
+#X obj 702 266 bng 15 250 50 0 bangTime2 GtoP empty 17 7 0 10 -262144
+-1 -1;
+#X obj 761 362 line;
+#X obj 761 281 del 500;
+#X obj 837 328;
+#X obj 1292 69 bng 15 250 50 0 empty DefaultSound empty 17 7 0 10 -262144
+-1 -1;
+#X obj 111 653 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 4200 1;
+#X floatatom 111 850 5 0 0 0 - - -, f 5;
+#X obj 49 813 *;
+#X floatatom 49 840 5 0 0 0 - - -, f 5;
+#X obj 34 905 +;
+#X floatatom 34 933 10 0 0 0 - - -, f 10;
+#X msg 25 874 0.049335;
+#X msg 49 763 0.142399;
+#X obj 425 650 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 4200 1;
+#X floatatom 425 847 5 0 0 0 - - -, f 5;
+#X obj 363 810 *;
+#X floatatom 363 837 5 0 0 0 - - -, f 5;
+#X obj 348 902 +;
+#X floatatom 348 930 10 0 0 0 - - -, f 10;
+#X msg 363 760 0.16593;
+#X msg 339 871 0.05531;
+#X obj 425 620 r SpeedforSpeedAndVolumeChangerForTwoSounds;
+#X obj 111 620 r SpeedforSpeedAndVolumeChangerForTwoSounds;
+#X obj 1360 389 r sendSpeedPiano;
+#X obj 34 971 s sendSpeedGuitar;
+#X obj 348 968 s sendSpeedPiano;
+#X obj 716 158 r sendSpeedGuitar;
+#X obj 922 354 r ChoiceOfSound;
+#X msg 761 316 0 500;
+#X msg 702 314 1 10;
+#X obj 740 301 bng 15 250 50 0 empty PianoSound empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1121 287 bng 15 250 50 0 empty GuitarTime empty 17 7 0 10 -262144
+-1 -1;
+#X obj 420 406 vsl 15 128 0 2 0 0 empty Volume empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 1278 686 vsl 15 128 0 2 0 0 empty Volume empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 480 537 *~;
+#X obj 1159 817 *~;
+#X msg 1358 667 2;
+#X obj 1399 652 bng 15 250 50 0 empty Loud empty 17 7 0 10 -262144
+-1 -1;
+#X msg 1278 646 0;
+#X obj 1323 631 bng 15 250 50 0 empty Mute empty 17 7 0 10 -262144
+-1 -1;
+#X msg 338 387 2;
+#X obj 379 372 bng 15 250 50 0 empty Loud empty 17 7 0 10 -262144 -1
+-1;
+#X msg 420 345 0;
+#X obj 465 330 bng 15 250 50 0 empty Mute empty 17 7 0 10 -262144 -1
+-1;
+#X obj 918 90 r transitionSpeedPtoG;
+#X msg 1292 388 0.0958669;
+#X msg 620 83 0.11062;
+#X connect 2 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 4 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
+#X connect 8 0 11 0;
+#X connect 8 0 15 0;
+#X connect 9 0 8 1;
+#X connect 10 0 12 0;
+#X connect 11 0 13 0;
+#X connect 12 0 107 0;
+#X connect 13 0 107 0;
+#X connect 15 0 18 0;
+#X connect 16 0 15 0;
+#X connect 17 0 16 0;
+#X connect 18 0 19 0;
+#X connect 19 0 21 0;
+#X connect 20 0 19 1;
+#X connect 21 0 22 0;
+#X connect 23 0 24 0;
+#X connect 24 0 7 0;
+#X connect 27 0 28 0;
+#X connect 27 0 29 0;
+#X connect 28 0 53 0;
+#X connect 29 0 30 0;
+#X connect 29 0 31 0;
+#X connect 31 0 32 0;
+#X connect 32 0 36 0;
+#X connect 32 0 46 0;
+#X connect 32 0 47 0;
+#X connect 33 0 108 0;
+#X connect 34 0 108 0;
+#X connect 36 0 39 0;
+#X connect 37 0 36 0;
+#X connect 38 0 37 0;
+#X connect 39 0 40 0;
+#X connect 40 0 41 0;
+#X connect 41 0 42 0;
+#X connect 43 0 44 0;
+#X connect 44 0 31 0;
+#X connect 46 0 34 0;
+#X connect 47 0 33 0;
+#X connect 48 0 49 0;
+#X connect 48 0 52 0;
+#X connect 48 0 12 1;
+#X connect 48 0 13 1;
+#X connect 49 0 51 1;
+#X connect 50 0 34 1;
+#X connect 50 0 33 1;
+#X connect 51 0 50 0;
+#X connect 52 0 51 0;
+#X connect 54 0 32 1;
+#X connect 55 0 40 1;
+#X connect 56 0 2 0;
+#X connect 57 0 27 0;
+#X connect 58 0 56 0;
+#X connect 59 0 57 0;
+#X connect 60 0 58 0;
+#X connect 61 0 59 0;
+#X connect 62 0 68 0;
+#X connect 62 0 70 0;
+#X connect 63 0 48 0;
+#X connect 64 0 65 0;
+#X connect 64 0 66 0;
+#X connect 65 0 67 1;
+#X connect 66 0 67 0;
+#X connect 67 0 68 0;
+#X connect 68 0 63 0;
+#X connect 69 0 63 0;
+#X connect 70 0 69 0;
+#X connect 71 0 72 0;
+#X connect 72 0 76 0;
+#X connect 73 0 75 0;
+#X connect 73 0 102 0;
+#X connect 74 0 48 0;
+#X connect 75 0 101 0;
+#X connect 77 0 119 0;
+#X connect 77 0 118 0;
+#X connect 78 0 79 0;
+#X connect 78 0 80 1;
+#X connect 78 0 85 0;
+#X connect 78 0 84 0;
+#X connect 80 0 81 0;
+#X connect 81 0 82 1;
+#X connect 82 0 83 0;
+#X connect 83 0 97 0;
+#X connect 84 0 82 0;
+#X connect 85 0 80 0;
+#X connect 86 0 87 0;
+#X connect 86 0 88 1;
+#X connect 86 0 92 0;
+#X connect 86 0 93 0;
+#X connect 88 0 89 0;
+#X connect 89 0 90 1;
+#X connect 90 0 91 0;
+#X connect 91 0 98 0;
+#X connect 92 0 88 0;
+#X connect 93 0 90 0;
+#X connect 94 0 86 0;
+#X connect 95 0 78 0;
+#X connect 96 0 43 0;
+#X connect 99 0 23 0;
+#X connect 100 0 48 0;
+#X connect 101 0 74 0;
+#X connect 102 0 74 0;
+#X connect 103 0 101 0;
+#X connect 104 0 69 0;
+#X connect 105 0 107 1;
+#X connect 106 0 108 1;
+#X connect 107 0 14 0;
+#X connect 107 0 14 1;
+#X connect 108 0 35 0;
+#X connect 108 0 35 1;
+#X connect 109 0 106 0;
+#X connect 110 0 109 0;
+#X connect 111 0 106 0;
+#X connect 112 0 111 0;
+#X connect 113 0 105 0;
+#X connect 114 0 113 0;
+#X connect 115 0 105 0;
+#X connect 116 0 115 0;
+#X connect 117 0 64 0;
+#X connect 118 0 43 0;
+#X connect 119 0 23 0;
+#X restore 36 244 pd SpeedAndVolumeChangerForTwoSounds;
+#N canvas 0 50 1920 997 CrossFadeForTwoSounds 0;
+#X obj 314 69 hsl 128 15 0 1 0 0 empty CrossFadeSlider empty -2 -6
+0 8 -262144 -1 -1 0 1;
+#X obj 312 284 dac~;
+#N canvas 628 50 450 300 crossfader 0;
+#X obj 69 32 inlet;
+#X obj 215 29 inlet~;
+#X obj 132 25 inlet~;
+#X obj 154 160 *~;
+#X obj 69 94 *;
+#X obj 69 63 t f f;
+#X msg 136 84 1 \$1;
+#X obj 136 112 -;
+#X obj 117 152 *~;
+#X obj 154 200 +~;
+#X obj 153 235 /~ 2;
+#X obj 152 272 outlet~;
+#X connect 0 0 5 0;
+#X connect 1 0 3 0;
+#X connect 2 0 8 0;
+#X connect 3 0 9 1;
+#X connect 4 0 3 1;
+#X connect 4 0 6 0;
+#X connect 5 0 4 0;
+#X connect 5 1 4 1;
+#X connect 6 0 7 0;
+#X connect 7 0 8 1;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X restore 311 245 pd crossfader;
+#X obj 347 159 readsf~;
+#X obj 347 104 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 313 142 0;
+#X obj 287 127 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 589 227 readsf~;
+#X obj 589 165 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 547 210 0;
+#X obj 547 177 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 347 134 open PianoMelody.wav \, 1;
+#X msg 589 191 open AcousticGuitarEdit.wav \, 2;
+#X obj 589 89 bng 15 250 50 0 empty SoundON empty 17 7 0 10 -262144
+-1 -1;
+#X obj 547 112 bng 15 250 50 0 empty SoundOFF empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 2 0 1 1;
+#X connect 3 0 2 1;
+#X connect 3 1 4 0;
+#X connect 4 0 11 0;
+#X connect 5 0 3 0;
+#X connect 6 0 5 0;
+#X connect 7 0 2 2;
+#X connect 7 1 8 0;
+#X connect 8 0 12 0;
+#X connect 9 0 7 0;
+#X connect 10 0 9 0;
+#X connect 11 0 3 0;
+#X connect 12 0 7 0;
+#X connect 13 0 4 0;
+#X connect 13 0 8 0;
+#X connect 14 0 10 0;
+#X connect 14 0 6 0;
+#X restore 634 247 pd CrossFadeForTwoSounds;
+#X obj 40 219 hsl 128 15 0 1 0 0 SpeedforSpeedAndVolumeChangerForTwoSounds
+empty Speed_For_Sounds -2 -8 0 10 -261682 -1 -1 4200 1;
+#X obj 40 184 hsl 128 15 0 1 0 0 ChoiceOfSound empty Choice_Of_Sound
+-2 -8 0 10 -261682 -1 -1 12700 1;
+#X obj 182 219 bng 15 250 50 0 DefaultSound empty Default_Speed 17
+7 0 10 -261682 -1 -1;
+#X obj 181 184 bng 15 250 50 0 PianoSound empty Guitar 17 7 0 10 -261682
+-1 -1;
+#X obj 228 184 bng 15 250 50 0 GuitarTime empty Piano 17 7 0 10 -261682
+-1 -1;
+#X obj 40 155 hsl 128 15 0 2 0 0 Volume empty Volume -2 -8 0 10 -261682
+-1 -1 4900 1;
+#X obj 181 156 bng 15 250 50 0 Mute empty Mute 17 7 0 10 -261682 -1
+-1;
+#X obj 228 156 bng 15 250 50 0 Loud empty Loud 17 7 0 10 -261682 -1
+-1;
+#X obj 180 84 bng 15 250 50 0 GtoP empty Transition_from_Guitar_to_Piano
+17 7 0 10 -261682 -1 -1;
+#X obj 181 121 bng 15 250 50 0 PtoG empty Transition_from_Piano_to_Guitar
+17 7 0 10 -261682 -1 -1;
+#X obj 41 121 hsl 128 15 500 2000 0 0 transitionSpeedPtoG empty Speed_of_Transition_from_Piano_to_Guitar
+-2 -8 0 10 -261682 -1 -1 6400 1;
+#X obj 386 200 bng 15 250 50 0 StartGuitar empty Start_Guitar 17 7
+0 10 -204800 -1 -1;
+#X obj 386 225 bng 15 250 50 0 StartPiano empty Start_Piano 17 7 0
+10 -204800 -1 -1;
+#X obj 469 200 bng 15 250 50 0 StopGuitar empty Stop_Guitar 17 7 0
+10 -204800 -1 -1;
+#X obj 469 225 bng 15 250 50 0 StopPiano empty Stop_Piano 17 7 0 10
+-204800 -1 -1;
+#X obj 637 225 hsl 128 15 0 1 0 0 CrossFadeSlider empty Slider_For_CrossFade
+-2 -8 0 10 -204786 -1 -1 0 1;
+#X obj 636 170 bng 15 250 50 0 SoundON empty Turn_On_Sounds 17 7 0
+10 -204786 -1 -1;
+#X obj 636 195 bng 15 250 50 0 SoundOFF empty Mute_Sounds 17 7 0 10
+-204786 -1 -1;
+#X obj 45 26 bng 15 250 50 0 initP empty Initialise_Piano 17 7 0 10
+-261682 -1 -1;
+#X obj 180 26 bng 15 250 50 0 initG empty Initialise_Guitar 17 7 0
+10 -261682 -1 -1;
