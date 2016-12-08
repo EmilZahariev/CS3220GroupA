@@ -269,7 +269,8 @@
 #X obj 390 -155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 393 -261 hsl 128 15 60 240 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 4300 1;
+-262144 -1 -1 0 1;
+#X obj 325 -269 loadbang;
 #X connect 0 0 10 0;
 #X connect 1 0 28 0;
 #X connect 1 0 30 0;
@@ -365,6 +366,8 @@
 #X connect 68 0 67 0;
 #X connect 69 0 4 0;
 #X connect 70 0 64 0;
+#X connect 71 0 70 0;
+#X connect 71 0 68 0;
 #X restore -73 90 pd osc;
 #X obj 26 37 sel 0 1 2 3 4 5 6;
 #X obj -517 -39 metro 150;
@@ -592,11 +595,12 @@
 #X floatatom 390 -199 5 0 0 0 - - -, f 5;
 #X obj 390 -180 metro;
 #X obj 368 -195 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj 390 -155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 393 -261 hsl 128 15 60 240 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 4300 1;
+-262144 -1 -1 0 1;
+#X obj 325 -269 loadbang;
 #X connect 0 0 10 0;
 #X connect 1 0 28 0;
 #X connect 1 0 30 0;
@@ -692,6 +696,8 @@
 #X connect 68 0 67 0;
 #X connect 69 0 4 0;
 #X connect 70 0 64 0;
+#X connect 71 0 70 0;
+#X connect 71 0 68 0;
 #X restore -30 91 pd osc;
 #N canvas 0 86 1366 682 osc 0;
 #X obj 270 237 *~;
@@ -764,11 +770,12 @@
 #X floatatom 390 -199 5 0 0 0 - - -, f 5;
 #X obj 390 -180 metro;
 #X obj 368 -195 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj 390 -155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 393 -261 hsl 128 15 60 240 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 4300 1;
+-262144 -1 -1 0 1;
+#X obj 325 -269 loadbang;
 #X connect 0 0 10 0;
 #X connect 1 0 28 0;
 #X connect 1 0 30 0;
@@ -864,6 +871,8 @@
 #X connect 68 0 67 0;
 #X connect 69 0 4 0;
 #X connect 70 0 64 0;
+#X connect 71 0 70 0;
+#X connect 71 0 68 0;
 #X restore 14 92 pd osc;
 #N canvas 0 86 1366 682 osc 0;
 #X obj 270 237 *~;
@@ -936,11 +945,12 @@
 #X floatatom 390 -193 5 0 0 0 - - -, f 5;
 #X obj 390 -174 metro;
 #X obj 368 -189 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj 390 -149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 393 -255 hsl 128 15 60 240 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 4300 1;
+-262144 -1 -1 0 1;
+#X obj 322 -262 loadbang;
 #X connect 0 0 10 0;
 #X connect 1 0 28 0;
 #X connect 1 0 30 0;
@@ -1036,6 +1046,8 @@
 #X connect 68 0 67 0;
 #X connect 69 0 4 0;
 #X connect 70 0 64 0;
+#X connect 71 0 70 0;
+#X connect 71 0 68 0;
 #X restore 58 93 pd osc;
 #N canvas 0 86 1366 682 osc 0;
 #X obj 270 237 *~;
@@ -1108,11 +1120,12 @@
 #X floatatom 390 -199 5 0 0 0 - - -, f 5;
 #X obj 390 -180 metro;
 #X obj 368 -195 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj 390 -155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 393 -261 hsl 128 15 60 240 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 4300 1;
+-262144 -1 -1 0 1;
+#X obj 325 -269 loadbang;
 #X connect 0 0 10 0;
 #X connect 1 0 28 0;
 #X connect 1 0 30 0;
@@ -1208,6 +1221,8 @@
 #X connect 68 0 67 0;
 #X connect 69 0 4 0;
 #X connect 70 0 64 0;
+#X connect 71 0 70 0;
+#X connect 71 0 68 0;
 #X restore 102 93 pd osc;
 #N canvas 0 86 1366 682 osc 0;
 #X obj 270 237 *~;
@@ -1280,11 +1295,12 @@
 #X floatatom 390 -199 5 0 0 0 - - -, f 5;
 #X obj 390 -180 metro;
 #X obj 368 -195 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj 390 -155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 393 -261 hsl 128 15 60 240 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 4300 1;
+-262144 -1 -1 0 1;
+#X obj 325 -269 loadbang;
 #X connect 0 0 10 0;
 #X connect 1 0 28 0;
 #X connect 1 0 30 0;
@@ -1380,6 +1396,8 @@
 #X connect 68 0 67 0;
 #X connect 69 0 4 0;
 #X connect 70 0 64 0;
+#X connect 71 0 70 0;
+#X connect 71 0 68 0;
 #X restore 147 94 pd osc;
 #N canvas 0 86 1366 682 osc 0;
 #X obj 270 237 *~;
@@ -1452,11 +1470,12 @@
 #X floatatom 390 -199 5 0 0 0 - - -, f 5;
 #X obj 390 -180 metro;
 #X obj 368 -195 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj 390 -155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 393 -261 hsl 128 15 60 240 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 4300 1;
+-262144 -1 -1 0 1;
+#X obj 325 -269 loadbang;
 #X connect 0 0 10 0;
 #X connect 1 0 28 0;
 #X connect 1 0 30 0;
@@ -1552,6 +1571,8 @@
 #X connect 68 0 67 0;
 #X connect 69 0 4 0;
 #X connect 70 0 64 0;
+#X connect 71 0 70 0;
+#X connect 71 0 68 0;
 #X restore 191 95 pd osc;
 #X text -596 -103 sound on/off;
 #X text -294 -101 harmony change on/off;
